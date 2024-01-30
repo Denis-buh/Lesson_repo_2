@@ -12,6 +12,7 @@
         "stdexcept": "cpp",
         "system_error": "cpp",
         "typeinfo": "cpp",
-        "iosfwd": "cpp"
+        "iosfwd": "cpp",
+        "cmath": "cpp"
     }
 }
