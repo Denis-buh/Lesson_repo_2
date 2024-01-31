@@ -19,7 +19,7 @@ int main()
     double number_dbl = 45.9;  // Так создается переменная с дробным численым типом данных
     cout << number_dbl << "\n";
 
-    // double - 8 байт (Значения: двойная точность)
+    // long double - 16 байт (Значения: двойная точность)
     long double number_dbl2 = 45.9;  // Так создается переменная с дробным численым типом данных
     cout << number_dbl2 << "\n";
 
@@ -27,5 +27,6 @@ int main()
     int number_in_int = 38765.456; 
     // На горячую: (int)number_dbl
     cout << number_in_int << "\n";
+    system("pause");
     
 }

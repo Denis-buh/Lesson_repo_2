@@ -58,21 +58,21 @@ int main()
     // and - и (лог умножение)
     res = flag_1 && flag_2;
     cout << "&& " << res <<"\n";
-    res = flag_1 and flag_2;
+    //res = flag_1 and flag_2;
     cout << "and " << res <<"\n";
 
     // || - или (лог сложение)
     // or - или (лог сложение)
     res = flag_1 || flag_2;
     cout << "|| " << res <<"\n";
-    res = flag_1 or flag_2;
+    //res = flag_1 or flag_2;
     cout << "or " << res <<"\n";
 
     // ! - не (лог отрицание\инверсия) 
     // not  - не (лог отрицание\инверсия) 
     res = (! flag_1);
     cout << "! " << res <<"\n";
-    res = (not flag_1);
+    //res = (not flag_1);
     cout << "not " << res <<"\n";
 
 

@@ -3,7 +3,7 @@
 
 
 #include <iostream>
-//#include <string> необходима для работы getline
+// #include <string> необходима для работы getline
 using namespace std;
 
 
