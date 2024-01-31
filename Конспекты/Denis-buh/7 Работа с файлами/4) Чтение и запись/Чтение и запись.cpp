@@ -64,5 +64,4 @@ int main(int argc, char* argv[])
     file.close(); // Закрываем файл
 
     system("pause");
-
 }

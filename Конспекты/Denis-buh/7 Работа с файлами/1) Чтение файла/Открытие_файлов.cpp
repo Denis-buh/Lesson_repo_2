@@ -33,21 +33,14 @@ int main(int argc, char* argv[])
     /*
     // Считывание по одному символу
     char inform;
-    SetConsoleCP(1251);
-    SetConsoleOutputCP(1251);  
     while (file.get(inform)){
         // метод get считывает информацию по символам и засовывает инфу в inform. Если получилось считать инфу то вернет true и на оборот
         cout << inform;
     }
-    SetConsoleCP(65001); 
-    SetConsoleOutputCP(65001); 
-    cout << "\n";*/
 
-    /*
+    
     // Считывание информации до пробела
-    string inform;
-    SetConsoleCP(1251);
-    SetConsoleOutputCP(1251);  
+    string inform; 
     while (not file.eof()){
         // метод eof вернет true если был конец файла и на оборот
         inform = ""; // Нужно для коректного считывания
@@ -55,25 +48,23 @@ int main(int argc, char* argv[])
         file >> inform;
         cout << inform;
     }
-    SetConsoleCP(65001); 
-    SetConsoleOutputCP(65001); 
     */
 
     // Считывание информации по строкам
     string inform;
 
-    SetConsoleCP(1251);
-    SetConsoleOutputCP(1251);  
+    // SetConsoleCP(1251);
+    // SetConsoleOutputCP(1251);  
     while (not file.eof()){
         inform = ""; // Нужно для коректного считывания
         // считывает информацию до перехода на новую строку и засовывает инфу в inform.
         getline(file, inform); 
         cout << inform;
     }
-    SetConsoleCP(65001); 
-    SetConsoleOutputCP(65001); 
-
+    // SetConsoleCP(65001); 
+    // SetConsoleOutputCP(65001); 
+    cout << "\n";
     file.close(); // Закрываем файл
-
     
+    system("pause");
 }

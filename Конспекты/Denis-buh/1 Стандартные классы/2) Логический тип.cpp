@@ -15,5 +15,7 @@ int main()
     
     bool flag = true; // “ак создаетс€ переменна€ с логический типом данных
     cout << flag << "\n";
+
+    system("pause");
     
 }

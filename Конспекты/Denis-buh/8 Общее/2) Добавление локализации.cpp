@@ -23,13 +23,14 @@ int main(){
    1251 - кодировка windows 1251 (в ней работает русский ввод)
    */
 
-    system("chcp 1251 >> null");
+    // system("chcp 1251 >> null");
+    system("chcp 1251");
 
     cout << "Немного текста" << endl;
     string come_inform;
     cout << "Введите инфу на русском: ";
     cin >> come_inform;
     cout << "Инфа " << come_inform  << "\n";
+
     system("pause");
-    
 }

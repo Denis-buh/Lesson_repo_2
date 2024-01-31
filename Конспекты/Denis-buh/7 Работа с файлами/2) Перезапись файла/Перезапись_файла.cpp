@@ -45,7 +45,5 @@ int main(int argc, char* argv[])
     file.close(); // Закрываем файл
     cout << "Была произведена запись в файл\n"; 
 
-
     system("pause");
-
 }

@@ -14,5 +14,6 @@
         "typeinfo": "cpp",
         "iosfwd": "cpp",
         "cmath": "cpp"
-    }
+    },
+    "C_Cpp.errorSquiggles": "enabled"
 }

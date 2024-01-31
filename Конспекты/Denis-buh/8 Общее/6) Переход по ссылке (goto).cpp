@@ -8,7 +8,7 @@ using namespace std;
 
 int main()
 {
-    system("chcp 65001");
+    system("chcp 1251");
    
     cout << "1\n";
     /* Использовать goto необходимо в крайних случаях когда без него не обойтись
@@ -22,5 +22,6 @@ int main()
     link: // Ссылка (куда нужно перейти)
 
     cout << "3\n";
-   
+
+    system("pause");
 }
