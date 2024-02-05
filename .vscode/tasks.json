@@ -9,7 +9,7 @@
                 "-g",
                 "${file}",
                 "-o",
-                "D:\\cache\\main.exe"
+                "C:\\cache\\main.exe"
             ],
             "options": {
                 "cwd": "${fileDirname}"
