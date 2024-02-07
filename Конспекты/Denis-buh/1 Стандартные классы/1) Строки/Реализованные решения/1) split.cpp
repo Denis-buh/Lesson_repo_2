@@ -80,7 +80,7 @@ list<string> split(string st, const char delim){
     if (size(st_small) != 0){
         res.push_back(st_small);
     }
-    cout << "Время выполнения кода (сек): " << clock()/1000.0 << endl; // время работы программы  
+    
     return res;
 
 }

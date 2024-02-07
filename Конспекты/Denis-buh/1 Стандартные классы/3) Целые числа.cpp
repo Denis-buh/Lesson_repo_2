@@ -3,6 +3,7 @@
 
 
 #include <iostream>
+#include <cmath>
 using namespace std;
 
 
@@ -25,18 +26,38 @@ int main()
     unsigned short number_shr_pos = 56; // Так создается переменная с целочисленым типом данных
     cout << number_shr_pos << "\n";
 
-    //long - 4 байт (Значения: [?2147483648; 2147483647]). long = long int = signed long int = signed long. Утарело
+    //long - 4 байт (Значения: [-2147483648; 2147483647]). long = long int = signed long int = signed long. Утарело
     long number_lng = 98; // Так создается переменная с целочисленым типом данных
     cout << number_lng << "\n";
     //unsigned long - 4 байт (Значения: [0; 4294967295]). unsigned long = unsigned long int. Утарело
     unsigned long number_lng_pos = 98; // Так создается переменная с целочисленым типом данных
     cout << number_lng_pos << "\n";
 
-    //long long - 8 байт (Значения: [?9223372036854775808 до 9223372036854775807]). long long = long long int = signed long long int = signed long long
+    //long long - 8 байт (Значения: [-9223372036854775808 до 9223372036854775807]). long long = long long int = signed long long int = signed long long
     long long number_lng_lng = 98; // Так создается переменная с целочисленым типом данных
     cout << number_lng << "\n";
     //unsigned long long - 8 байт (Значения: [0; 18446744073709551615]). unsigned long long = unsigned long long int
     unsigned long long number_lng_lng_pos = 98; // Так создается переменная с целочисленым типом данных
     cout << number_lng_lng_pos << "\n";
+
+    /* Целые числа в двоичной системе счисления
+    {"Знак числа (0 - положительное, 1 - негативное)"b"Число в 2 системе исчесления"}
+    Как строить бинарный вид отричацельных чисел:
+        1) От числа отнимаем 1
+        1) Построить бинарный вид числа по модулю
+        2) В полученном виде меняем 1 на 0 а 0 на 1
+    */
+    int number = {0b110}; // Получение числа из двоичной системы счисления 
+    cout << "0b100 = " << number << "\n";
+    int neg_number = {-0b110}; 
+    cout << "1b001 = " << neg_number << "\n";
+
+    // То что работает с cmath
+    /* Модуль для целого числа
+    "модуль числа" = abs("Число которому нужно найти модуль")
+    */
+    int test_int = -4356;
+    cout << "|" << test_int << "| = " << abs(test_int) << "\n";
+
     system("pause");
 }

@@ -24,7 +24,7 @@ int main()
 
     while (number <= 10){
         cout << "number = " << number << "\n";
-        number += 1;
+        number += 1; // Данное действие необходимо так как иначе цикл сорвет и он будет бесконечным
     }
     cout << "Цикл закончился\n";
     system("pause");

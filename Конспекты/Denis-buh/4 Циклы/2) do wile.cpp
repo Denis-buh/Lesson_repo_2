@@ -26,8 +26,9 @@ int main()
 
     do{
         cout << "number = " << number << "\n";
-        // number += 1;
-    } while (number != 0);
+        number += 1; // Необходимо иначе цикл будет бесконечным
+    } while (number < 10);
+
     cout << "Цикл закончился\n";
     system("pause");
 }
