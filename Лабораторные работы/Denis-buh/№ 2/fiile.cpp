@@ -10,7 +10,7 @@ using namespace std;
 //#define DEBUG
 
 
-bool chek_shot(float x, float y){
+bool chek_shot(long double x, long double y){
     if (y >= 0){
         /* ѕроверка на попадани€ в линии
             y = 2x + 2 (x < 0) // ƒл€ левой линии 
@@ -19,16 +19,21 @@ bool chek_shot(float x, float y){
         sgn(-2x) = -1 // в правой строноне 
         “ак как различий нет то можно использовать:
         y = -2|x| + 2 (x < 0)
+        ƒл€ провеки на поподание подход€т следующее условие
+        y <= (-2 * fabs(x)) + 2
         */
-        const float g_y = (-2 * fabs(x)) + 2;
+        const long double g_y = (-2 * fabs(x)) + 2;
         return (y <= g_y);
     }
     else{
         /* ѕроверка на попадание в парабалу
-            y = x*x - 1 - уравнение параболы
+            r*r = x*x  + y * y - уравнение окружности
+            ” заданной окружности r = 1
+        ƒл€ провеки на поподание подход€т следующее условие
+        y*y + x*x <= 1
         */
-        const float g_y = (pow(x, 2)) - 1;
-        return (y >= g_y);
+        const long double r = (pow(y, 2)) + (pow(x, 2));
+        return (r <= 1);
     }
 }
 
@@ -38,7 +43,7 @@ int main(){
     // ƒобавление локализации
     system("chcp 1251"); 
 
-    float x, y; // —оздаем переменные дл€ записи кординат выстрела
+    long double x, y; // —оздаем переменные дл€ записи кординат выстрела
 
     #ifdef DEBUG
         x = 0.5; y = 1; 
