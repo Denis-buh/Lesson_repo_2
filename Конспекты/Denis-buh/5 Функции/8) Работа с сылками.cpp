@@ -15,7 +15,7 @@ using namespace std;
  */
 template <typename arrey>
 arrey sum(arrey arr[], const int LEN_arr){
-    // arr[] - ссылка дл€ работы с массивом (так как без указател€ получем 1 элемент масива)
+    // arr[] - ссылка дл€ работы с массивом (так как без ссылки получем 1 элемент масива)
     arrey res = 0;
     for (int i = 0; i < LEN_arr; i += 1){
         res += arr[i];
@@ -26,7 +26,7 @@ arrey sum(arrey arr[], const int LEN_arr){
 
 void my_fun(int &number, int &number_1){// Ќе использовать из-за возможных непон€ток в коде. ƒанный метод позвол€ет возвращать и мен€ть сразу несколько переменных из функции
     int res = number  + 1; // –азъименовываем ссылка (получам значение) и прибавл€ем к нему 1
-    number = res; // ћен€ем значение в области озу (на область ссылаютс€ *number и number)
+    number = res; // ћен€ем значение в области озу (на область ссылаютс€ *number и res)
     number_1 = 20; 
 }
 

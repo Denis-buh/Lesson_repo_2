@@ -38,10 +38,12 @@ int main()
     // <= - меньше или равно
     res = number_float_1 <= number_float_2;
     cout << "<= " << res <<"\n";
+    // <= В некоторых ситуациях необходимо заменять на fabs(number_float_1 - number_float_2) <= "Класс точности числом"
     
     // >= больше или равно
     res = number_float_1 >= number_float_2;
     cout << ">= " << res <<"\n";
+    // <= В некоторых ситуациях необходимо заменять на fabs(number_float_1 - number_float_2) >= "Класс точности числом"
 
 
     // Операторы равенства

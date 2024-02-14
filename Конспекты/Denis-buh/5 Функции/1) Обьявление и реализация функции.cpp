@@ -14,9 +14,10 @@ using namespace std;
     "Тело/блок функции"
 }
 
-При передачи массивов их размер в функции определяется не правильно так как они уникальны и кним нужен особый подход
+При передачи массивов их размер в функции определяется не правильно так как они уникальны и к ним нужен особый подход
 При измении массивов в функции, масив меняется везде
-При изменении переменной с конкретным значением (не массива), переменная изменется только в функции
+При изменении переменной с конкретным значением (не массива), переменная изменется только в функции (при условии что эта переменная - аргумент функции)
+    Если в функции будет напрямую (не аргумент функции) менятся глобальная переменная то переменная изменится везде
 Все то что мы не хотим менять в функции должно иметь приписку const 
 */
 
@@ -35,9 +36,9 @@ void my_fun(){
  * @param LEN_numbers длина массива
  * @return int - Сумма элементов масива
  */
-int sum(const int * const numbers, const int LEN_numbers){
-    // int *numbers - указатель для масива (иначе передастся 1 элемент масива)
-    // const int * const numbers - 1 const запрещает менять массив. 2 const запрещает менять указатель numbers
+int sum(const int* const numbers, const int LEN_numbers){
+    // int* numbers - указатель для масива (иначе передастся 1 элемент масива)
+    // const int* const numbers - 1 const запрещает менять массив. 2 const запрещает менять указатель numbers
     int sum = 0;
 
     for (int i = 0; i < LEN_numbers; i += 1){
@@ -57,8 +58,8 @@ int sum(const int * const numbers, const int LEN_numbers){
  * @param LEN_numbers длина массива
  * @return int - Сумма элементов масива
  */
-int sum(int *numbers, const int LEN_numbers){
-    // int *numbers - указатель для масива (иначе передастся 1 элемент масива)
+int sum(int* numbers, const int LEN_numbers){
+    // int* numbers - указатель для масива (иначе передастся 1 элемент масива)
     int sum = 0;
 
     for (int i = 0; i < LEN_numbers; i += 1){
@@ -78,7 +79,7 @@ int main(){
     int res = sum(my_arrey, sizeof(my_arrey) / sizeof(my_arrey[0])); /*Вывов функции  sum с необходимыми аргуметами*/
     cout << "Сумма масива: " << res << "\n";
     /* Аналогично вызову функции в команде:
-    cout << "Сумма масива: " << sum(my_arrey, sizeof(my_arrey)) << "\n";
+    cout << "Сумма масива: " << sum(my_arrey, sizeof(my_arrey) / sizeof(my_arrey[0])) << "\n";
     */
     system("pause");
 }

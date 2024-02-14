@@ -10,6 +10,11 @@ using namespace std;
 int main()
 {
     system("chcp 1251"); 
+    /* Преписки к типам данных
+        unsigned - полложительные даные для типа (без знака)
+        short - короткий тип данных
+        long long - длиный тип данных
+    */
 
     // Целые числа
     //int - 4 байт (Значения: [-2147483648; 2147483647])
@@ -27,18 +32,19 @@ int main()
     cout << number_shr_pos << "\n";
 
     //long - 4 байт (Значения: [-2147483648; 2147483647]). long = long int = signed long int = signed long. Утарело
-    long number_lng = 98; // Так создается переменная с целочисленым типом данных
+    long number_lng = 908; // Так создается переменная с целочисленым типом данных
     cout << number_lng << "\n";
     //unsigned long - 4 байт (Значения: [0; 4294967295]). unsigned long = unsigned long int. Утарело
     unsigned long number_lng_pos = 98; // Так создается переменная с целочисленым типом данных
     cout << number_lng_pos << "\n";
 
     //long long - 8 байт (Значения: [-9223372036854775808 до 9223372036854775807]). long long = long long int = signed long long int = signed long long
-    long long number_lng_lng = 98; // Так создается переменная с целочисленым типом данных
+    long long number_lng_lng = 798; // Так создается переменная с целочисленым типом данных
     cout << number_lng << "\n";
     //unsigned long long - 8 байт (Значения: [0; 18446744073709551615]). unsigned long long = unsigned long long int
-    unsigned long long number_lng_lng_pos = 98; // Так создается переменная с целочисленым типом данных
+    unsigned long long number_lng_lng_pos = -938; // Так создается переменная с целочисленым типом данных
     cout << number_lng_lng_pos << "\n";
+
 
     /* Целые числа в двоичной системе счисления
     {"Знак числа (0 - положительное, 1 - негативное)"b"Число в 2 системе исчесления"}
