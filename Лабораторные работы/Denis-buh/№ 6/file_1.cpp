@@ -6,7 +6,7 @@
 #include <ctime>
 using namespace std;
 
-// Выводим массив 
+// Р’С‹РІРѕРґРёРј РјР°СЃСЃРёРІ 
 void print_arr(const int* arr, const int len_arr_2){
     for (int i = 0; i < len_arr_2; i += 1){
         cout << arr[i] << ", ";
@@ -15,16 +15,16 @@ void print_arr(const int* arr, const int len_arr_2){
 
 
 
-// Тут ищем среднее арифметическое
-float found_sdaf(const int* arr, const int len_arr_2){
-    // Ищем самый максимальный элемент
+// РўСѓС‚ РёС‰РµРј СЃСЂРµРґРЅРµРµ Р°СЂРёС„РјРµС‚РёС‡РµСЃРєРѕРµ
+float found_sdaf(const int arr[], const int len_arr_2){
+    // РС‰РµРј СЃР°РјС‹Р№ РјР°РєСЃРёРјР°Р»СЊРЅС‹Р№ СЌР»РµРјРµРЅС‚
     int index_max_item = 0;
     for (int i = 1; i < len_arr_2; i += 1){
         if (arr[i] > arr[index_max_item]){
             index_max_item = i; 
         };
     };
-    // Ищем среднее арифметическое после максимального элемента
+    // РС‰РµРј СЃСЂРµРґРЅРµРµ Р°СЂРёС„РјРµС‚РёС‡РµСЃРєРѕРµ РїРѕСЃР»Рµ РјР°РєСЃРёРјР°Р»СЊРЅРѕРіРѕ СЌР»РµРјРµРЅС‚Р°
     float sum = 0;
     float cout_numbers = len_arr_2 - index_max_item - 1; 
     if (cout_numbers == 0){
@@ -32,7 +32,7 @@ float found_sdaf(const int* arr, const int len_arr_2){
     };
 
     for (int i = index_max_item + 1; i < len_arr_2; i += 1){
-        sum += *(arr + i); 
+        sum += arr[i]; 
     };
 
     return (sum / cout_numbers); 
@@ -40,34 +40,35 @@ float found_sdaf(const int* arr, const int len_arr_2){
 };
 
 
+
 int main(){
-    // Добавление локализации
+    // Р”РѕР±Р°РІР»РµРЅРёРµ Р»РѕРєР°Р»РёР·Р°С†РёРё
     system("chcp 1251");
-    // Делаем рандомные числа рандомными
+    // Р”РµР»Р°РµРј СЂР°РЅРґРѕРјРЅС‹Рµ С‡РёСЃР»Р° СЂР°РЅРґРѕРјРЅС‹РјРё
     srand(time(NULL) % 10000);
 
 
-    // Обьевьяем размер массива
+    // РћР±СЊРµРІСЊСЏРµРј СЂР°Р·РјРµСЂ РјР°СЃСЃРёРІР°
     const int len_arr_1 = 20;
     const int len_arr_2 = 15;
-    // Обьевьяем массив
+    // РћР±СЊРµРІСЊСЏРµРј РјР°СЃСЃРёРІ
     int arr[len_arr_1][len_arr_2];
 
-    // Заполняем массив
+    // Р—Р°РїРѕР»РЅСЏРµРј РјР°СЃСЃРёРІ
     for (int i = 0; i < len_arr_1; i += 1){
         for (int ii = 0; ii < len_arr_2; ii += 1){
             arr[i][ii] = rand() % 100; 
         };
-        cout << "Строка №: " << i + 1 << ")\t";
+        cout << "РЎС‚СЂРѕРєР° в„–: " << i + 1 << ")\t";
         print_arr(arr[i], len_arr_2);
         cout << "\n";
         if (((i +1) % 4) == 0){
-            cout << "Среднее арифметическое = " << found_sdaf(arr[i], len_arr_2) << "\n";
+            cout << "РЎСЂРµРґРЅРµРµ Р°СЂРёС„РјРµС‚РёС‡РµСЃРєРѕРµ = " << found_sdaf(arr[i], len_arr_2) << "\n";
         } 
     };
 
 
-    system("pause"); // Данная строка добавляет задержку для окна консоли
+    system("pause"); // Р”Р°РЅРЅР°СЏ СЃС‚СЂРѕРєР° РґРѕР±Р°РІР»СЏРµС‚ Р·Р°РґРµСЂР¶РєСѓ РґР»СЏ РѕРєРЅР° РєРѕРЅСЃРѕР»Рё
     return 0;
 };
 
