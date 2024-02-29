@@ -20,7 +20,7 @@ float found_sdaf(const int* arr, const int len_arr_2){
     // »щем самый максимальный элемент
     int index_max_item = 0;
     for (int i = 1; i < len_arr_2; i += 1){
-        if (arr[i] > arr[index_max_item]){
+        if (*(arr + i) > *(arr + index_max_item)){
             index_max_item = i; 
         };
     };
