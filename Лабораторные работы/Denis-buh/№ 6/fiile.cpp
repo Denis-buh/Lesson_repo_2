@@ -62,7 +62,7 @@ int main(){
         print_arr(arr[i], len_arr_2);
         cout << "\n";
         if (((i +1) % 4) == 0){
-            cout << "Среднее арифметическое = " << found_sdaf(arr[i], len_arr_2) << "\n";
+            cout << "Среднее арифметическое = " << found_sdaf(*(arr + i), len_arr_2) << "\n";
         } 
     };
 
