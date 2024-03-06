@@ -16,7 +16,7 @@ void print_arr(const float* arr, const int len_arr_2){
 };
 
 
-void found_characteristics(float a, float b, float c, float &perimeter, float &square){
+void found_characteristics(float a, float b, float c, float& perimeter, float& square){
     // Ищем переметр треугольника
     perimeter = a + b + c; 
     // Полупереметр
