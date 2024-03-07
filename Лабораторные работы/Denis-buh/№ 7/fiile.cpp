@@ -51,9 +51,9 @@ int main(){
     // Обьявляем массив для треугольников
     const int len_arr_tren = 5;
     // Массив переметов
-    float p_arr_tren[len_arr_tren] = {8, 4, 2, 9, 0}; 
+    float p_arr_tren[len_arr_tren]; 
     // Массив площадей
-    float s_arr_tren[len_arr_tren] = {3, 5, 2, 43, 1}; 
+    float s_arr_tren[len_arr_tren]; 
 
     // Заполняем массив
     for (int i = 0; i < len_arr_tren; i += 1){
