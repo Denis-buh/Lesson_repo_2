@@ -47,7 +47,7 @@ public:
     string get_city(){return this->city;}
     float get_points(){return this->points;}
 
-
+    // Форматный вывод
     void fprint(){
         cout << setw(20) << this->name_command << "|";
         cout << setw(20)  << this->city << "|";
