@@ -3,15 +3,15 @@
 
 
 /*
-Р’ СЃС‚СЂСѓРєС‚СѓСЂРЅРѕРј С€Р°Р±Р»РѕРЅРµ РґРѕР»Р¶РЅС‹ СЃРѕРґРµСЂР¶Р°С‚СЊСЃСЏ СЃР»РµРґСѓСЋС‰РёРµ СЃРІРµРґРµРЅРёСЏ:
-    РЅР°Р·РІР°РЅРёРµ РєРѕРјР°РЅРґС‹ РїРµСЂРІРµРЅСЃС‚РІР° РїРѕ С„СѓС‚Р±РѕР»Сѓ, 
-    РіРѕСЂРѕРґ, 
-    РєРѕР»РёС‡РµСЃС‚РІРѕ РЅР°Р±СЂР°РЅРЅС‹С… РѕС‡РєРѕРІ.
+В структурном шаблоне должны содержаться следующие сведения:
+    название команды первенства по футболу, 
+    город, 
+    количество набранных очков.
 */
 
 
 #include <iostream>
-#include <iomanip> // Р”Р»СЏ С„РѕСЂРјР°С‚РЅРѕРіРѕ РІС‹РІРѕРґР°
+#include <iomanip> // Для форматного вывода
 
 
 using namespace std; 
@@ -19,17 +19,17 @@ using namespace std;
 
 struct Football_comand{
 private:
-    // РЅР°Р·РІР°РЅРёРµ РєРѕРјР°РЅРґС‹ РїРµСЂРІРµРЅСЃС‚РІР° РїРѕ С„СѓС‚Р±РѕР»Сѓ
+    // название команды первенства по футболу
     string name_command; 
-    // РіРѕСЂРѕРґ РєРѕРјР°РЅРґС‹
+    // город команды
     string city;
-    // РєРѕР»РёС‡РµСЃС‚РІРѕ РЅР°Р±СЂР°РЅРЅС‹С… РѕС‡РєРѕРІ 
+    // количество набранных очков 
     float points;
 
 public:
-    // РРЅРёС†РёР°Р»РёР·РёСЂСѓРµРј РѕР±СЉРµРєС‚ СЃС‚СЂСѓРєС‚СѓСЂС‹
+    // Инициализируем объект структуры
     Football_comand(string name_command, string city, float points){
-        // this - РѕР±СЊРµРєС‚ СЃС‚СЂСѓРєС‚СѓСЂС‹ Football_comand
+        // this - обьект структуры Football_comand
         this->name_command =  string(name_command);
         this->city =  string(city);
         this->points =  float(points); 
@@ -42,12 +42,12 @@ public:
         this->points =  float(obj.points); 
     }
 
-    // Р“РµС‚РµСЂС‹
+    // Гетеры
     string get_name_command(){return this->name_command;}
     string get_city(){return this->city;}
     float get_points(){return this->points;}
 
-    // Р¤РѕСЂРјР°С‚РЅС‹Р№ РІС‹РІРѕРґ
+    // Форматный вывод
     void fprint(){
         cout << setw(20) << this->name_command << "|";
         cout << setw(20)  << this->city << "|";
