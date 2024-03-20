@@ -53,8 +53,9 @@ using namespace std;
 struct Commands_footbal{
 private:
     Football_comand* arr_command = nullptr; // Массив футбольных команд
-    int len_mass_command; // Размер массива 
-    bool state_information = false; // Статус информации (не определена)
+    int len_mass_command = 0; // Размер массива 
+    // Размер массива после которого нужно выдавать сводку
+    int len_max_itm; 
 
     // Необходима для создания футбольных команд
     Football_comand made_command(int nimber){
@@ -103,14 +104,31 @@ private:
             if (flag == 2)  {return Football_comand(name_command, city, points);}
         }
     }
+    // Добавление команды в массив
+    void append_item(Football_comand new_command){
+        // new_command - новая футбольная команда
+        // Новый размер масива
+        int new_len_mass_command = this->len_mass_command + 1;
+        // Новый масив
+        Football_comand* new_arr_command = new Football_comand[new_len_mass_command];
+        // Сохраняем информацию в новый масив
+        for (int i = 0; i < this->len_mass_command; i += 1){
+            new_arr_command[i] = arr_command[i];
+        };
+        // Добавляем новую команду в новый массив
+        new_arr_command[len_mass_command] = new_command;
+        // Удаляем старый массив
+        delete []arr_command;
+        // Ссылаемся на новый масив и новый размер
+        this->arr_command = new_arr_command;
+        this->len_mass_command = new_len_mass_command;
+    }
 
 public:
     // Инициализируем структуру
     Commands_footbal(int len_mass_command){
-        // Устанавливаем размер массива
-        this->len_mass_command = len_mass_command;
-        // Создаем массив
-        arr_command = new Football_comand[len_mass_command];
+        // Размер массива после которого нужно выдавать сводку
+        this->len_max_itm = len_mass_command;
     }
 
     // Финализатор структуры (это когда будем удалять струтуру)
@@ -120,20 +138,9 @@ public:
         arr_command = nullptr; 
     }
 
-    // Производим регистрацию команд (начальный ввод данных)
-    void registration(){
-        for (int i = 0; i < len_mass_command; i += 1){
-            this->arr_command[i] =  this->made_command(i + 1); 
-        }
-        // Сообщаем классу что информация указана
-        this->state_information = true; 
-    } 
-
-    bool get_state_information()  {return this->state_information;}
-
     // Данная функция сортирует масив команд
     void sort(){
-        if (not this->state_information){
+        if (this->len_mass_command == 0){
             // Если информация не была указана
             cout << "Что бы сортировать инофрмацию ее нужно сначала ввести\n"; 
             system("pause");
@@ -150,7 +157,7 @@ public:
             // Если ничего не изменилось
             if (index_max_irem == i) {continue;}
             // Если изменения были
-            Football_comand temp = Football_comand(arr_command[i]);
+            Football_comand temp = arr_command[i];
             arr_command[i] = arr_command[index_max_irem];
             arr_command[index_max_irem] = temp;
         }
@@ -159,11 +166,9 @@ public:
     }
 
     // Данная функция выводи массив на форматную печать
-    /**
-     * 
-    */
     void print(int start_with = 0){
-        if (not this->state_information){
+        // start_with - строка с которой нужно выводить информацию
+        if (this->len_mass_command == 0){
             // Если информация не была указана
             cout << "Что бы вывести инофрмацию ее нужно сначала ввести\n"; 
             system("pause");
@@ -184,44 +189,25 @@ public:
     }
     // Добавляет новую команду в массив
     void append_command(){
-        // Если до этого не было ввода информации
-        if (not this->state_information){
-            // Если информация не была указана
-            cout << "Что бы добавить новую команду необходимо заполнить информацию по прошлым " << this->len_mass_command << " командам\n"; 
-            system("pause");
-            // Убиваем функцию (так как дальше нет смысла)
-            return; 
-        }
-
         // Создаем новую команду
         Football_comand command = this->made_command(this->len_mass_command + 1);
-        // Новый размер масива
-        int new_len_mass_command = this->len_mass_command + 1;
-        // Новый масив
-        Football_comand* new_arr_command = new Football_comand[new_len_mass_command];
-        // Сохраняем информацию в новый масив
-        for (int i = 0; i < this->len_mass_command; i += 1){
-            new_arr_command[i] = arr_command[i];
-        };
-        // Добавляем новую команду в новый массив
-        new_arr_command[len_mass_command] = command;
-        // Удаляем старый массив
-        delete []arr_command;
-        // Ссылаемся на новый масив и новый размер
-        arr_command = new_arr_command;
-        len_mass_command = new_len_mass_command;
-        // Сортируем массив команд
-        this->sort();
-        int position; // Позиция новой добавленой команды
-        // Определяем позицию новой вкладки
-        for (int i = 0; i < this->len_mass_command; i += 1){
-            if (arr_command[i].get_name_command() == command.get_name_command())  {position = i;}
+        this->append_item(command); 
+        
+        // Если массив достиг таково размера, после которого нужно выдавать сводку по новой команде
+        if (len_mass_command > this->len_max_itm){
+            // Сортируем массив команд
+            this->sort();
+            int position; // Позиция новой добавленой команды
+            // Определяем позицию новой вкладки
+            for (int i = 0; i < this->len_mass_command; i += 1){
+                if (arr_command[i].get_name_command() == command.get_name_command())  {position = i;}
+            }
+            cout << "Общий список команд\n";
+            this->print();
+            cout << "Позиция новой команды в общем списке = " << position + 1 << "\n";
+            cout << "Команды которые набрали меньше балов чем последняя введеная команда\n";
+            this->print(position + 1);
         }
-        cout << "Общий список команд\n";
-        this->print();
-        cout << "Позиция новой команды в общем списке = " << position + 1 << "\n";
-        cout << "Команды которые набрали меньше балов чем последняя введеная команда\n";
-        this->print(position + 1);
     }
 };
 
@@ -236,11 +222,10 @@ int main(){
         system("cls");
         int action; // Действие 
         cout << "Возможные действия:\n";
-        cout << "\t1) Ввод данных\n";
+        cout << "\t1) Добавление команды\n";
         cout << "\t2) Вывод информации\n";
         cout << "\t3) Сортировка данных\n";
-        cout << "\t4) Добавление команды\n";
-        cout << "\t5) Выход из программы\n";
+        cout << "\t4) Выход из программы\n";
         cout << "Для выполнения команды введите номер команды: ";
         try{
             string temp_action;
@@ -256,9 +241,9 @@ int main(){
             continue;
         }
         switch (action){
-            case 1: // Ввод данных
+            case 1: // Добавление команды
                 system("cls");
-                football_commands.registration();
+                football_commands.append_command();
                 break;
 
             case 2: // Вывод информации
@@ -270,11 +255,7 @@ int main(){
                 system("cls");
                 football_commands.sort();
                 break;
-            case 4: // Добавление команды
-                system("cls");
-                football_commands.append_command();
-                break;
-            case 5: // Выход из программы
+            case 4: // Выход из программы
                 return 0; 
 
             default:
