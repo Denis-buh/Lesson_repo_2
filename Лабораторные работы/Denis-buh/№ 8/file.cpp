@@ -129,6 +129,8 @@ public:
         this->state_information = true; 
     } 
 
+    bool get_state_information()  {return this->state_information;}
+
     // Данная функция сортирует масив команд
     void sort(){
         if (not this->state_information){
@@ -232,9 +234,12 @@ int main(){
         int action; // Действие 
         cout << "Возможные действия:\n";
         cout << "\t1) Ввод данных\n";
-        cout << "\t2) Вывод информации\n";
-        cout << "\t3) Сортировка данных\n";
-        cout << "\t4) Добавление команды\n";
+        // Проверяем что в структуру-контейнер что-то да добавили
+        if (football_commands.get_state_information()){
+            cout << "\t2) Вывод информации\n";
+            cout << "\t3) Сортировка данных\n";
+            cout << "\t4) Добавление команды\n";
+        }
         cout << "\t5) Выход из программы\n";
         cout << "Для выполнения команды введите номер команды: ";
         try{
