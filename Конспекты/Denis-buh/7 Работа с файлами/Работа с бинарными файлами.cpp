@@ -26,11 +26,11 @@ int main(int argc, char* argv[])
 {
     system("chcp 65001"); // Устанавливаем кодировку utf-8 (65001)
 
-    string path_new = "D:\\Разработки разработчика\\Проекты\\My Soft\\My_Textbook_cpp\\7 Работа с файлами\\1) Чтение файла";
-    path_new = "C:\\Разработки разработчика\\Lesson_repo_2\\Конспекты\\Denis-buh\\7 Работа с файлами\\1) Чтение файла";
+    string path_new = "D:\\Разработки разработчика\\Проекты\\My Soft\\My_Textbook_cpp\\7 Работа с файлами";
+    path_new = "C:\\Разработки разработчика\\Lesson_repo_2\\Конспекты\\Denis-buh\\7 Работа с файлами";
     filesystem::current_path(path_new); // устанавливаем указаную директорию в которой будет работать программа
 
-    string name_file = "my_file.txt"; // Задаем имя файла
+    string name_file = "my_file.bn"; // Задаем имя файла
 
     fstream file; // Инициализируем обьект для работы с файлами
     file.exceptions(ifstream::badbit | ifstream::failbit); // Данная команда необходима для возможности коректной обработки ошибок
@@ -44,48 +44,29 @@ int main(int argc, char* argv[])
         ios::trunc: файл усекается при открытии. Может быть установлен, если также установлен режим out (не надо)
         ios::binary: файл открывается в бинарном режиме
     */
-    file.open(name_file); // Открытие файла в режиме перезаписи (если файла нет, то он его не создаст)
+    file.open(name_file, ios::out | ios::binary); // Открытие файла в режиме чтения (если файла нет, то он его не создаст)
 
     if (not file.is_open()){ // Проверяем файл на открытие
         cout << "Файл не открылся\n";
         system("pause");
         return 0;
     }
-    /*
-    // Считывание по одному символу
-    char inform;
-    while (file.get(inform)){
-        // метод get считывает информацию по символам и засовывает инфу в inform. Если получилось считать инфу то вернет true и на оборот
-        cout << inform;
-    }
 
-    
-    // Считывание информации до пробела
-    string inform; 
-    while (not file.eof()){
-        // метод eof вернет true если был конец файла и на оборот
-        inform = ""; // Нужно для коректного считывания
-        // считывает информацию до пробела и засовывает инфу в inform.
-        file >> inform;
-        cout << inform;
-    }
-    */
 
-    // Считывание информации по строкам
-    string inform;
-
-    // SetConsoleCP(1251);
-    // SetConsoleOutputCP(1251);  
-    while (not file.eof()){
-        inform = ""; // Нужно для коректного считывания
-        // считывает информацию до перехода на новую строку и засовывает инфу в inform.
-        getline(file, inform); 
-        cout << inform;
-    }
-    // SetConsoleCP(65001); 
-    // SetConsoleOutputCP(65001); 
-    cout << "\n";
+    file << "some inform\n"; // Производим запись в файл
+    file << 3.14 << "\n"; // Производим запись в файл
+    file << true << "\n"; // Производим запись в файл
+    string inf;
+    cout << "Введите информацию для файла: ";
+    SetConsoleCP(1251);
+    SetConsoleOutputCP(1251);  
+    cin >> inf;
+    file << inf << "\n"; // Производим запись в файл
+    SetConsoleCP(65001); 
+    SetConsoleOutputCP(65001); 
+    //  Также можно работать со собственными типами данных и вообще с любыми типами данных
     file.close(); // Закрываем файл
+    cout << "Была произведена запись в файл\n"; 
     
     system("pause");
 }
