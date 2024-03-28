@@ -14,7 +14,7 @@ using namespace std;
 int main(){
     system("chcp 65001");
     // Устанавливаем рабочий каталог для программы
-    string path_new = "D:\\Разработки разработчика\\Ёба программы\\Lesson_repo_2\\Лабораторные работы\\Denis-buh\\№ 10";
+    string path_new = "C:\\Разработки разработчика\\Lesson_repo_2\\Лабораторные работы\\Denis-buh\\№ 10";
     filesystem::current_path(path_new); 
 
     fstream file; // Позволяет читать файл
@@ -36,7 +36,19 @@ int main(){
 
     cout << "Вывод содержимого файла с выделениями фрагментов текста:\n\n";
     int cout_word = 0; // Количество слов
+
+    cin.ignore(32767, '\n');
+
+    string inform;
     while (not file.eof()){
+        // метод eof() вернет true если был конец файла и на оборот
+        inform = ""; // Нужно для коректного считывания
+        // считывает информацию до пробела и засовывает инфу в inform.
+        file >> inform;
+        cout << inform << " ";
+    }
+
+    /*while (not file.eof()){
         string inform = "";
         getline(file, inform);
         inform += " "; // Для коректоной работы последующего цикла
@@ -61,7 +73,7 @@ int main(){
             }
         } 
         cout << "\n"; // Так как считывали до \n нужно обратно отобразить \n
-    }
+    }*/
     cout << "Количество слов в файле: " << cout_word << "\n";
 
     system("pause");
