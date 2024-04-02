@@ -14,7 +14,7 @@ using namespace std;
 int main(){
     system("chcp 65001");
     // Устанавливаем рабочий каталог для программы
-    string path_new = "C:\\Разработки разработчика\\Lesson_repo_2\\Лабораторные работы\\Denis-buh\\№ 10";
+    string path_new = "D:\\My applications\\Shit programs\\Lesson_repo_2\\Лабораторные работы\\Denis-buh\\№ 10";
     filesystem::current_path(path_new); 
 
     fstream file; // Позволяет читать файл
@@ -34,19 +34,25 @@ int main(){
     cout << "Для продолжения нажмите любую клавишу\n";
     system("pause");
 
-    cout << "Вывод содержимого файла с выделениями фрагментов текста:\n\n";
+    cout << "Вывод содержимого файла с выделениями фрагментов текста:\n";
     int cout_word = 0; // Количество слов
-
-    cin.ignore(32767, '\n');
 
     string inform;
     while (not file.eof()){
         // метод eof() вернет true если был конец файла и на оборот
         inform = ""; // Нужно для коректного считывания
-        // считывает информацию до пробела и засовывает инфу в inform.
+        char final_sum = ' '; // Символ конца вывода
         file >> inform;
-        cout << inform << " ";
+        if (inform[inform.size() - 1] == '.') {final_sum = '\n';}
+        cout_word += 1;
+        if (cout_word != 10){
+            cout << inform << final_sum;
+        }
+        else{
+            cout << "!" << inform << "!" << final_sum;
+        }
     }
+    cout << "\n";
 
     /*while (not file.eof()){
         string inform = "";
