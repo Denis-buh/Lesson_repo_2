@@ -14,7 +14,7 @@ using namespace std;
 int main(){
     system("chcp 65001");
     // Устанавливаем рабочий каталог для программы
-    string path_new = "D:\\My applications\\Shit programs\\Lesson_repo_2\\Лабораторные работы\\Denis-buh\\№ 10";
+    string path_new = "C:\\Разработки разработчика\\Lesson_repo_2\\Лабораторные работы\\Denis-buh\\№ 10";
     filesystem::current_path(path_new); 
 
     fstream file; // Позволяет читать файл
@@ -24,11 +24,11 @@ int main(){
 
     // С начала просто выводим файл
     cout << "Вывод содержимого файла:\n\n";
-    while (not file.eof()){
+    /*while (not file.eof()){
         string inform = "";
         getline(file, inform); 
         cout << inform << "\n";
-    }
+    }*/
     // Возращаемся в начало файла
     file.seekg(0); 
     cout << "Для продолжения нажмите любую клавишу\n";
@@ -37,21 +37,32 @@ int main(){
     cout << "Вывод содержимого файла с выделениями фрагментов текста:\n";
     int cout_word = 0; // Количество слов
 
-    string inform;
-    while (not file.eof()){
-        // метод eof() вернет true если был конец файла и на оборот
-        inform = ""; // Нужно для коректного считывания
-        char final_sum = ' '; // Символ конца вывода
-        file >> inform;
-        if (inform[inform.size() - 1] == '.') {final_sum = '\n';}
-        cout_word += 1;
-        if (cout_word != 10){
-            cout << inform << final_sum;
-        }
-        else{
-            cout << "!" << inform << "!" << final_sum;
+    //string inform;
+    try{
+        while (not file.eof()){
+            // метод eof() вернет true если был конец файла и на оборот
+            char inform; // Нужно для коректного считывания
+            char final_sum = ' '; // Символ конца вывода
+            file.get(inform);
+            if (inform == ' '){cout_word += 1;
+                if (cout_word == 9) {cout << "!";}
+                if (cout_word == 8) {cout << " !"; continue;}
+            }
+
+            
+
+            /*if (inform[inform.size() - 1] == '.') {final_sum = '\n';}
+            cout_word += 1;
+            if (cout_word != 10){
+                cout << inform << final_sum;
+            }
+            else{
+                cout << "!" << inform << "!" << final_sum;
+            }*/
+            cout << inform;
         }
     }
+    catch (...){}
     cout << "\n";
 
     /*while (not file.eof()){
