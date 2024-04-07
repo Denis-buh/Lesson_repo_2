@@ -42,7 +42,6 @@ public:
     }
     // Конструктор класса position для копирования
     Position(Position& pos){
-        cout << "Position(Position& pos)\n";
         this->name = pos.name;
         this->cost_position = pos.cost_position;
         this->cout_position = pos.cout_position;
@@ -173,7 +172,6 @@ public:
     }
     // Конструктор класса position для копирования
     Order(Order& ord){
-        cout << "Order(Order& ord)\n";
         this->name = ord.name;
         this->cost = ord.cost ;
         this->discount = ord.discount;
@@ -188,6 +186,7 @@ public:
         this->name = obj.name;
         this->cost = obj.cost;
         this->discount = obj.discount;
+        this->arr_position = vector<Position*>(0); 
         for (int i = 0; i < obj.arr_position.size(); i += 1){
             Position* new_item = new Position;
             *new_item = *obj.arr_position[i]; 
@@ -208,7 +207,8 @@ public:
     // Чекеры // 
     bool position_in_order(string name_position){
         for (Position* i : this->arr_position){
-            if (i->get_name() == name_position){
+            string pos = i->get_name(); 
+            if (pos == name_position){
                 return true;
             }
         }
@@ -248,6 +248,7 @@ public:
             // К общей стоимости чека добавляем стоимость нового пункта
             this->cost += new_item->cost();
         }
+        this->set_discount();
 
     }
 
