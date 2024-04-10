@@ -21,7 +21,7 @@ using namespace std;
 struct My_struct{
 private:
     int secret_number;
-public:
+public: // (данное поле является по умолчанию)
     My_struct(int number){
         this->secret_number = number;
         cout << "Объект My_struct был создан\n";
