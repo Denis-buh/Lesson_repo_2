@@ -152,8 +152,11 @@ private:
         int flag = system("CHOICE");
         cout << endl; 
         system("cls"); // Чистим консоль 
-        if (flag == 1)  {return Position(name, cost_position, cout_position);}
-        made_position(number);
+        if (flag == 1)  {
+            Position res(name, cost_position, cout_position);
+            return res;
+            }
+        return made_position(number);
     }
 
 protected:
