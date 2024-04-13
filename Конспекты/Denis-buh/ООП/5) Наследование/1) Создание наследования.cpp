@@ -50,7 +50,7 @@ int main(){
     system("chcp 1251"); 
 
 
-    My_super_class new_class = My_super_class();
+    My_super_class new_class;
 
     new_class.show_iform();
 
