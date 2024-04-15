@@ -1,0 +1,84 @@
+
+
+
+
+#include <iostream>
+#include <stdexcept> // Это чтобы была возможность подымать исключения
+#include <vector>
+
+
+using namespace std;
+
+
+class Square_matrix{
+private:
+    // размер матрицы
+    unsigned int n = 0;
+    // длина самого дленного элемента
+    unsigned int max_len_item = 0;
+    // Массив елементов матрицы
+    vector<vector<int>> items;
+public:
+    // Методы
+    // Заполнение матрицы
+    void set_inform(unsigned int n, vector<vector<int>> items){
+        // Чистим матрицу
+        this->items.clear();
+        this->n = n; 
+        this->items = items; 
+        this->max_len_item = 0; 
+    }
+    void set_max_len_item(unsigned int len){
+        this->max_len_item = len;
+    }
+    // вывод в консоль
+    friend ostream& operator<<(ostream& os, const Square_matrix& mat){
+        os << "(";
+        if (size(mat.items) != 0){
+            // Показываем элементы матрицы
+            os.setf(ios::left); 
+            for (int i = 0; i < mat.n; i += 1){
+                os << "\n";
+                for (int ii = 0; ii < mat.n; ii += 1){
+                    os.width(mat.max_len_item); 
+                    os << mat.items[i][ii] << " ";
+                }
+            }
+            os << "\n";
+        }
+        os << ")";
+        return os;
+    }
+    // транспонирование
+    void tranponate(){
+        if (this->n == 0){
+            throw runtime_error("Обьект класса не инициализирован!");
+        }
+        // Массив для новых значений
+        vector<vector<int>>new_items(n); 
+        for (int i = 0; i < this->n; i += 1){
+            // Создаем строчку для массива
+            new_items[i] = vector<int>(n);
+            for (int ii = 0; ii < this->n; ii += 1){
+                new_items[i][ii] = this->items[ii][i]; 
+            }
+        }
+        this->items = new_items; 
+    }
+    // поиск детерминанта
+    int found_det(){
+        if (this->n == 0){
+            throw runtime_error("Обьект класса не инициализирован!");
+        }
+        int sum_plus = 0; 
+        int sum_neg = 0; 
+        for (int i = 0; i < this->n; i += 1){
+            // Определяем главную диагональ
+            sum_plus += (this->items[i][0]) * (this->items[(i + 1) % 3][1]) * (this->items[(i + 2) % 3][2]); 
+            // Определяем побочную диагональ
+            sum_neg += (this->items[i][2]) * (this->items[(i + 1) % 3][1]) * (this->items[(i + 2) % 3][0]); 
+        }
+        return (sum_plus - sum_neg); 
+    }
+};
+
