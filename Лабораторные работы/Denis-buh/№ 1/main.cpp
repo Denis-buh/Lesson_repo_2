@@ -41,15 +41,10 @@ int main(){
                             cout << "Введите элемент с номером: " << (i + 1) << "." << (ii + 1) << ": ";
                             string temp;
                             cin >> temp;
-                            // Проверка на самое длиное число 
-                            if (max_len_item < size(temp)){
-                                max_len_item = size(temp); 
-                            }
                             items[i][ii] = stoi(temp); 
                         }
                     }
                     mat.set_inform(n, items);
-                    mat.set_max_len_item(max_len_item);
                     cout << "Данные введены\n";
                 }
                     break;

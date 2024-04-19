@@ -14,8 +14,6 @@ class Square_matrix{
 private:
     // размер матрицы
     unsigned int n = 0;
-    // длина самого дленного элемента
-    unsigned int max_len_item = 0;
     // Массив елементов матрицы
     vector<vector<int>> items;
 public:
@@ -26,21 +24,16 @@ public:
         this->items.clear();
         this->n = n; 
         this->items = items; 
-        this->max_len_item = 0; 
     }
-    void set_max_len_item(unsigned int len){
-        this->max_len_item = len;
-    }
+
     // вывод в консоль
     friend ostream& operator<<(ostream& os, const Square_matrix& mat){
         os << "(";
         if (size(mat.items) != 0){
             // Показываем элементы матрицы
-            os.setf(ios::left); 
             for (int i = 0; i < mat.n; i += 1){
                 os << "\n";
                 for (int ii = 0; ii < mat.n; ii += 1){
-                    os.width(mat.max_len_item); 
                     os << mat.items[i][ii] << " ";
                 }
             }
