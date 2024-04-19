@@ -50,7 +50,7 @@ int main(){
                     break;
 
                 case 2:
-                    cout << mat << "\n";
+                    mat.ptint(); 
                     break;
 
                 case 3:

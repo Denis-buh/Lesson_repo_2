@@ -27,20 +27,19 @@ public:
     }
 
     // вывод в консоль
-    friend ostream& operator<<(ostream& os, const Square_matrix& mat){
-        os << "(";
-        if (size(mat.items) != 0){
+    void ptint(){
+        cout << "(";
+        if (size(this->items) != 0){
             // Показываем элементы матрицы
-            for (int i = 0; i < mat.n; i += 1){
-                os << "\n";
-                for (int ii = 0; ii < mat.n; ii += 1){
-                    os << mat.items[i][ii] << " ";
+            for (int i = 0; i < this->n; i += 1){
+                cout << "\n";
+                for (int ii = 0; ii < this->n; ii += 1){
+                    cout << this->items[i][ii] << " ";
                 }
             }
-            os << "\n";
+            cout << "\n";
         }
-        os << ")";
-        return os;
+        cout << ")\n";
     }
     // транспонирование
     void tranponate(){
