@@ -15,11 +15,37 @@ private:
     // размер матрицы
     unsigned int n = 0;
     // Массив елементов матрицы
-    vector<vector<float>> items;
+    vector<vector<float>> items = {};
 public:
+    // Конструкторы
+    // По умолчанию
+    Square_matrix(){
+        // Устанавливаем стандартные значения
+        this->items = {};
+        this->n = 0; 
+    }
+    // С инициализацией
+    Square_matrix(vector<vector<float>> items, unsigned int n = 0){
+        // Устанавливаем поданные значения
+        if (n == 0){
+            n = size(items); 
+        }
+        this->set_inform(n, items); 
+    }
+    // Копирование
+    Square_matrix(const Square_matrix& obj){
+        // Устанавливаем поданные значения
+        this->set_inform(obj.n,  obj.items); 
+    }
+
     // Методы
     // Заполнение матрицы
     void set_inform(unsigned int n, vector<vector<float>> items){
+        for (int i = 0; i < n; i += 1){
+            if (n != size(items[i])){
+                throw invalid_argument("Количество строк не совпадает с количеством столбцов!");
+            }
+        }
         // Чистим матрицу
         this->items.clear();
         this->n = n; 
@@ -70,6 +96,12 @@ public:
             sum_neg += (this->items[i][2]) * (this->items[(i + 1) % 3][1]) * (this->items[(i + 2) % 3][0]); 
         }
         return (sum_plus - sum_neg); 
+    }
+    // Деконструктор
+    ~Square_matrix(){
+        // Чистим матрицу
+        this->items.clear();
+        this->n = 0; 
     }
 };
 

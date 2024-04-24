@@ -33,10 +33,10 @@ int main(){
                     //cin >> n;
                     // —оздаем массив елементов матрицы
                     int max_len_item = 0; 
-                    vector<vector<int>>items(n); 
+                    vector<vector<float>>items(n); 
 
                     for (int i = 0; i < n; i += 1){
-                        items[i] = vector<int>(n);
+                        items[i] = vector<float>(n);
                         for (int ii = 0; ii < n; ii += 1){
                             cout << "¬ведите элемент с номером: " << (i + 1) << "." << (ii + 1) << ": ";
                             string temp;
@@ -50,7 +50,7 @@ int main(){
                     break;
 
                 case 2:
-                    mat.ptint(); 
+                    mat.print(); 
                     break;
 
                 case 3:
