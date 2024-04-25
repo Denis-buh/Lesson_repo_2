@@ -83,7 +83,7 @@ public:
         this->items = new_items; 
     }
     // поиск детерминанта
-    int found_det(){
+    float found_det(){
         if (this->n == 0){
             throw runtime_error("Обьект класса не инициализирован!");
         }
