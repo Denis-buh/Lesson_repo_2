@@ -22,7 +22,14 @@ class vectr
     }
     void comparison(vectr addit_vector)
     {
-
+        if ((i == addit_vector.i) && (j == addit_vector.j))
+        {
+            cout << "Векторы равны" << endl;
+        }
+        else
+        {
+            cout << "Векторы неравны" << endl;
+        }
     }
 };
 
@@ -59,7 +66,8 @@ int main()
                 cout << "Введите координаты вектора, с которым идёт сравнение...\n";
                 cin >> i_new >> j_new;
                 vectr new_vector(i_new,j_new);
-                cout << "Состояние равенства векторов: " << (my_vectr == new_vector) << "\n";
+                cout << "Состояние равенства векторов: " << endl;
+                my_vectr.comparison(new_vector);
                 continue;
             }
             case 3: cout << "Arrivederci! \n"; system("pause"); return 0;
