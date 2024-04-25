@@ -7,7 +7,7 @@
 #include "modle.cpp"
 
 using namespace std;
-#define DEBUG
+//#define DEBUG
 
 #ifdef DEBUG
 int main(){
@@ -76,20 +76,51 @@ int main(){
 #else
 int main(){
     system("chcp 1251");
-    int n = 3; 
-    vector<vector<float>>items= {
-        {1, 2, 3},
-        {4, 5, 6},
-        {7, 8, 9}
-    }; 
+    cout << "Создание объекта через конструктор по умолчанию\n";
     // По умолчанию
     Square_matrix mat;
-    // С инициализацией
-    Square_matrix mat2(items);
-    // Через копирование
-    Square_matrix mat3(mat2);
+    cout << "Вывод обьекта в консоль: ";
+    mat.print();
 
     system("pause");
+    system("cls");
+
+    int n = 3; 
+    vector<vector<float>>items(n); 
+    cout << "Введите значения для матрицы\n";
+    for (int i = 0; i < n; i += 1){
+        items[i] = vector<float>(n);
+        for (int ii = 0; ii < n; ii += 1){
+            cout << "Введите элемент с номером: " << (i + 1) << "." << (ii + 1) << ": ";
+            float temp;
+            cin >> temp;
+            items[i][ii] = temp; 
+        }
+    }
+    cout << "Создание объекта через конструктор c инициализацией\n";
+    Square_matrix mat2(items);
+    cout << "Вывод обьекта в консоль:\n";
+    mat2.print();
+    cout << "Вывод обьекта в консоль после транспанирования:\n";
+    mat2.tranponate();
+    mat2.print();
+    cout << "Вывод детерминанта объекта в консоль: " << mat2.found_det() << "\n";
+
+    system("pause");
+    system("cls");
+
+    // Через копирование
+    cout << "Создание объекта через конструктор копирования\n";
+    Square_matrix mat3(mat2);
+    cout << "Вывод обьекта в консоль:\n";
+    mat3.print();
+    cout << "Вывод обьекта в консоль после транспанирования:\n";
+    mat3.tranponate();
+    mat3.print();
+    cout << "Вывод детерминанта объекта в консоль: " << mat3.found_det() << "\n";
+
+    system("pause");
+    return 0; 
 }
 
 
