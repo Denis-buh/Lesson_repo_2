@@ -7,7 +7,7 @@
 #include "modle.cpp"
 
 using namespace std;
-#define DEBUG
+//#define DEBUG
 
 #ifdef DEBUG
 int main(){
@@ -77,19 +77,71 @@ int main(){
 int main(){
     system("chcp 1251");
     int n = 3; 
-    vector<vector<float>>items= {
-        {1, 2, 3},
-        {4, 5, 6},
-        {7, 8, 9}
-    }; 
-    // По умолчанию
-    Square_matrix mat;
-    // С инициализацией
-    Square_matrix mat2(items);
-    // Через копирование
-    Square_matrix mat3(mat2);
+    vector<vector<float>>items(n); 
+    cout << "Введите значения для матрицы A\n";
+    for (int i = 0; i < n; i += 1){
+        items[i] = vector<float>(n);
+        for (int ii = 0; ii < n; ii += 1){
+            cout << "Введите элемент с номером: " << (i + 1) << "." << (ii + 1) << ": ";
+            float temp;
+            cin >> temp;
+            items[i][ii] = temp; 
+        }
+    }
+    Matrix_square mat(items);
+    cout << "Вывод обьекта в консоль: ";
+    mat.print();
 
     system("pause");
+    system("cls");
+
+
+    items.clear();
+    cout << "Введите значения для матрицы B\n";
+    for (int i = 0; i < n; i += 1){
+
+        items.push_back(vector<float>(n));
+        for (int ii = 0; ii < n; ii += 1){
+            cout << "Введите элемент с номером: " << (i + 1) << "." << (ii + 1) << ": ";
+            float temp;
+            cin >> temp;
+            items[i][ii] = temp; 
+        }
+    }
+    Matrix_square mat2(items);
+    cout << "Вывод обьекта в консоль: ";
+    mat2.print();
+
+    system("pause");
+    system("cls");
+    cout << "Проверка матрицы A и B на раменство\n";
+    if (mat == mat2){
+        cout << "Матрицы A и B равны\n";
+    }
+    else{
+        cout << "Матрицы A и B не равны\n";
+    }
+
+    cout << "C = A + B\n";
+    Matrix_square mat3 = (mat + mat2); 
+    cout << "Вывод С\n";
+    mat3.print(); 
+
+    cout << "Введите число на которое нужно умножить матрицу: ";
+    int number;
+    cin >> number; 
+    cout << "mat4 = A * number\n";
+    Matrix_square mat4 = (mat * number); 
+    cout << "Вывод mat4\n";
+    mat4.print(); 
+    cout << "mat5 = B * number\n";
+    Matrix_square mat5 = (mat2 * number); 
+    cout << "Вывод mat5\n";
+    mat5.print(); 
+
+
+    system("pause");
+    return 0; 
 }
 
 
