@@ -117,7 +117,7 @@ public:
     // Копирование
     Matrix_square(const Matrix_square& obj): Square_matrix(obj.items, obj.n){}
     // Оператор сравнения
-    bool fun_rav(const Matrix_square& obj){
+    bool operator==(const Matrix_square& obj){
         if (this->n != obj.n){
             return false;
         }
@@ -132,7 +132,7 @@ public:
         return true; 
     }
     // Оператор сложения
-    Matrix_square fun_pls(const Matrix_square& obj){
+    Matrix_square operator+(const Matrix_square& obj){
         vector<vector<float>>items(n); 
         for (int i = 0; i < this->n; i += 1){
             items[i] = vector<float>(n);
@@ -143,7 +143,7 @@ public:
         return Matrix_square(items, n); 
     }
     // Оператор умножения
-    Matrix_square fun_prs(float obj){
+    Matrix_square operator*(float obj){
         vector<vector<float>>items(n); 
         for (int i = 0; i < this->n; i += 1){
             items[i] = vector<float>(n);

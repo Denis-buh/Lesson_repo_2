@@ -115,7 +115,7 @@ int main(){
     system("pause");
     system("cls");
     cout << "Проверка матрицы A и B на раменство\n";
-    if (mat.fun_rav(mat2)){
+    if (mat == mat2){
         cout << "Матрицы A и B равны\n";
     }
     else{
@@ -123,7 +123,7 @@ int main(){
     }
 
     cout << "C = A + B\n";
-    Matrix_square mat3 = (mat.fun_pls(mat2)); 
+    Matrix_square mat3 = (mat + mat2); 
     cout << "Вывод С\n";
     mat3.print(); 
 
@@ -131,11 +131,11 @@ int main(){
     int number;
     cin >> number; 
     cout << "mat4 = A * number\n";
-    Matrix_square mat4 = (mat.fun_prs(number)); 
+    Matrix_square mat4 = (mat * number); 
     cout << "Вывод mat4\n";
     mat4.print(); 
     cout << "mat5 = B * number\n";
-    Matrix_square mat5 = (mat2.fun_prs(number)); 
+    Matrix_square mat5 = (mat2 * number); 
     cout << "Вывод mat5\n";
     mat5.print(); 
 
