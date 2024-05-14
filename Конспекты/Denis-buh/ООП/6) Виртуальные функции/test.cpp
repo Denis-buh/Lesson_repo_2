@@ -14,7 +14,6 @@
     видимости
     3) Виртуальный метод не может быть статическим но может быть дружественным
 
-
     
 */
 
@@ -22,10 +21,44 @@
 
 using namespace std;
 
+class B{
+protected:
+    int x;
+public:
+    B(int x){
+        this->x = x;
+    }
+    void print(){
+        cout << this->x << "\n";
+    }
+    virtual void Fun(){
+        this->x *= 2; 
+    }
+};
+
+
+class P: public B{
+public:
+    P(int f): B(f){}
+    // Тут переопределяем виртуальный метод 
+    virtual void Fun(){ this->x /= 2;}
+    
+};
 
 
 
 int main(){
-
+    B b(10); 
+    P d(10);
+    b.print();
+    d.print();
+    cout << "Тута что-то меняем\n";
+    // Указатель
+    B *bb;
+    bb = &d;
+    // Виртуальная функция
+    bb->Fun();
+    bb->print();
+    system("pause");
     return 0; 
 }
