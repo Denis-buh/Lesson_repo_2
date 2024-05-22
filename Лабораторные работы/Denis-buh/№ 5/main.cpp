@@ -8,7 +8,6 @@
 
 using namespace std;
 
-
 void print(vector<Tree>& trees){
     for (int i = 0; i < trees.size(); i += 1){
         trees[i].print(); 
@@ -33,7 +32,37 @@ void sort(vector<Tree>& trees){
     }
 }
 
+//#define CONST_MODE
 
+
+#ifdef CONST_MODE
+int main(){
+    system("chcp 1251");
+    // ”казатель базового класса
+    const Plant* obj; 
+    cout << "Cоздание константного цветка" << "\n";
+    const Flower flow("÷веток", "обыкновенный", "где-то", "фиолетовый", 2);
+    obj = &flow; 
+
+    obj->print();
+
+    cout << "\n\nCоздание константного овоща" << "\n";
+    const Vegetable veg("ќвощь", "необыкновенный", "где-то", 5, 3); 
+    obj = &veg; 
+
+    obj->print();
+
+
+    cout << "\n\nя посадил константного дерево" << "\n";
+    const Tree my_true("ƒерево", "дуб", "где-то", true, 3000, 100.9); 
+    obj = &my_true; 
+
+    obj->print();
+
+    system("pause");
+    return 0; 
+}
+#else
 
 int main(){
     system("chcp 1251");
@@ -58,6 +87,7 @@ int main(){
 
     obj->print();
 
+    system("pause");
 
     vector<Tree> trees;
     trees.push_back(Tree("ƒерево1", "дуб1", "где-то1", false, 3000, 100.9));
@@ -70,11 +100,8 @@ int main(){
     sort(trees);
     print(trees); 
 
-    
-
-
     system("pause");
     return 0; 
 }
 
-
+#endif 

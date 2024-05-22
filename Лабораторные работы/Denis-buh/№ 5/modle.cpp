@@ -22,8 +22,14 @@ public:
         this->species = species;
         this->habitat = habitat;
     }
+
+    Plant(const Plant& obj){
+        this->name = obj.name;
+        this->species = obj.species;
+        this->habitat = obj.habitat;
+    }
     // вывод информации
-    virtual void print() = 0; 
+    virtual void print() const = 0; 
 };
 
 
@@ -38,7 +44,12 @@ public:
         this->color = color;
         this->flowering_period = flowering_period; 
     }
-    virtual void print(){
+    Flower(const Flower& obj): Plant(obj.name, obj.species, obj.habitat){
+        this->color = obj.color;
+        this->flowering_period = obj.flowering_period; 
+    }
+
+    virtual void print() const{
         cout << "Название: " << this->name << "\n";
         cout << "Вид: " << this->species << "\n";
         cout << "Местообитание: " << this->habitat << "\n";
@@ -59,7 +70,12 @@ public:
         this->planting_month = planting_month;
         this->ripening_period = ripening_period; 
     }
-    virtual void print(){
+    Vegetable(const Vegetable& obj): Plant(obj.name, obj.species, obj.habitat){
+        this->planting_month = obj.planting_month;
+        this->ripening_period = obj.ripening_period; 
+    }
+
+    virtual void print() const{
         cout << "Название: " << this->name << "\n";
         cout << "Вид: " << this->species << "\n";
         cout << "Местообитание: " << this->habitat << "\n";
@@ -84,18 +100,24 @@ public:
         this->lifespan = lifespan; 
         this->height = height; 
     }
+    Tree(const Tree& obj): Plant(obj.name, obj.species, obj.habitat){
+        this->type = obj.type;
+        /*true - лиственное; false - хвойное*/
+        this->lifespan = obj.lifespan; 
+        this->height = obj.height; 
+    }
 
-    bool get_type(){return this->type;}
+    bool get_type() const{return this->type;}
 
-    bool operator>(Tree& other){
+    bool operator>(const Tree& other) const{
         return this->type > other.type;
     }
-    bool operator<(Tree& other){
+    bool operator<(const Tree& other) const{
         return this->type < other.type;
     }
 
 
-    virtual void print(){
+    virtual void print() const{
         cout << "Название: " << this->name << "\n";
         cout << "Вид: " << this->species << "\n";
         cout << "Местообитание: " << this->habitat << "\n";
