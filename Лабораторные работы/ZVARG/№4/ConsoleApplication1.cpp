@@ -1,6 +1,6 @@
 #include <iostream>
 #include <cmath>
-#include <C:\ConsoleApplication1\ConsoleApplication1.h>
+#include "ConsoleApplication1 (2).cpp"
 
 using namespace std;
 
@@ -38,7 +38,7 @@ int main()
         cout << "\t1)Вывод информации о векторе\n";
         cout << "\t2)Сравнение вектора с другим, заданным вами вектором\n";
         cout << "\t3)Сложение 3-мерных векторов\n";
-        cout << "\t4)Вычитание 3-мерных векторов\n";
+        cout << "\t4)Тернарное вычитание из 3-мерного вектора\n";
         cout << "\t5)Векторное произведение 3-мерных векторов\n";
         cout << "\t6)Выход из программы\n";
         cin >> cmd;
@@ -73,7 +73,8 @@ int main()
 			{
 				cout << "Векторы неравны" << endl;
 			}
-            if (my_vectr != new_vector)
+            cout << "Сравнение 3-мерных векторов...\n";
+            if (my3d_vectr != new3d_vectr)
             {
                 cout << "Векторы неравны" << endl;
             }
@@ -93,9 +94,9 @@ int main()
 		}
         case 4:
        	{
-            cout << "Вычитание векторов...";
+            cout << "Тернарное вычитание из вектора...";
         	my3Dvectr result_vectr;
-			result_vectr = 	my3d_vectr - new3d_vectr;
+			result_vectr = 	my3d_vectr--;
 			result_vectr.print_3dvectr();
             continue;
 		}

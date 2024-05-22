@@ -53,7 +53,7 @@ class Schoolkid : public Human
 	}
 	void const_print_human() const
 	{
-		cout << "| Год рождения: " << birth_year << " | " << "Возраст: " << age << " | " << "Пол: " << gender << " | " << "Фамилия и имя: " << surname << " " << name << " | " << "Номер школы: " << school_number << " | " << "Номер класса: " << class_number << " |" << endl;
+		cout << "| (const)Год рождения: " << birth_year << " | " << "Возраст: " << age << " | " << "Пол: " << gender << " | " << "Фамилия и имя: " << surname << " " << name << " | " << "Номер школы: " << school_number << " | " << "Номер класса: " << class_number << " |" << endl;
 	}
 };
 
@@ -93,7 +93,7 @@ class Teacher : public Human
 		surname = surnam;
 		name = nam;
 		worked_years = newworked_years;
-		new_job = new_job;
+		job = new_job;
 		age = 2024 - birth_year;
 		if (((age > 62) && (gender == 'м')) || ((age > 57) && (gender == 'ж')))
 		{

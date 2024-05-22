@@ -68,9 +68,9 @@ public:
             return false;
         }
     }
-    bool operator !=(my3Dvectr& addit_vector)//сравнение через "неравно" векторов
+    bool operator !=(const my3Dvectr& obj)//сравнение через "неравно" векторов
     {
-        if ((i != addit_vector.i) && (j != addit_vector.j) && (k != addit_vector.k))
+        if ((i != obj.i) && (j != obj.j) && (k != obj.k))
         {
             return true;
         }
@@ -87,11 +87,13 @@ public:
         result.k = this->k + added_one.k;
         return result;
     }
-    my3Dvectr operator --()//тернарное вычитание из вектора
+    my3Dvectr operator--(int obj)//тернарное вычитание из вектора
     {
-        this->i--;
-        this->j--;
-        this->k--;
+        my3Dvectr temp = (*this);
+        temp.i--;
+        temp.j--;
+        temp.k--;
+        return temp;
     }
     my3Dvectr operator -(my3Dvectr minus_one)//вычитание векторов
     {

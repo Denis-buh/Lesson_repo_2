@@ -46,16 +46,13 @@ class my3Dvectr : public vectr
 {
 private: float k;
 public:
-    my3Dvectr() { this->i = 0; this->j = 0; this->k = 0; }//по умолч.
-    my3Dvectr(const my3Dvectr& obj)//копир.
+    my3Dvectr(): vectr(){}//по умолч.
+    my3Dvectr(float _i, float _j, float _k):vectr(_i, _j)//с парам.
     {
-        this->i = obj.i;
-        this->j = obj.j;
-        this->k = obj.k;
+        this->k = _k;
     }
-    my3Dvectr(float _i, float _j, float _k)//с парам.
-    {
-        this->i = _i; this->j = _j; this->k = _k;
+    my3Dvectr(const my3Dvectr& obj) : vectr(obj.i, obj.j){//копир.
+        this->k = obj.k;
     }
     my3Dvectr plus(my3Dvectr added_one)//сложение векторов
     {

@@ -58,20 +58,28 @@ int main()
                 cin >> newworked_years >> new_job;
                 Teacher teacher(year, gend, surnam, nam, newworked_years, new_job);
                 teachers.push_back(teacher);
+                teacher.print_human();
             }
         }
-        cout << "Создан контейнер vector с данными о учителях. Отображаю данные из него...\n";
+    }
+        cout << "Создан контейнер vector с данными о учителях.\n";
         for (auto iter = teachers.begin(); iter != teachers.end(); iter++)
         {
             if ((*iter).get_state_pensioner())
             {
                 teachers.erase(iter);
             }
+            if (not teachers.size()){ break;}
         }
         cout << "Модифицированный контейнер с учителями без пенсионеров:\n";
         for (auto iter = teachers.begin(); iter != teachers.end(); iter++)
         {
+            if (not teachers.size())
+            {
+                break;
+            }
             (*iter).print_human();
         }
-    }
+    system("pause");
+    return 0;
 }
