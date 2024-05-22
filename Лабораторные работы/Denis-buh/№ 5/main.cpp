@@ -90,12 +90,12 @@ int main(){
     system("pause");
 
     vector<Tree> trees;
-    trees.push_back(Tree("Дерево1", "дуб1", "где-то1", false, 3000, 100.9));
+    trees.push_back(Tree("Дерево1", "дуб1", "где-то1", true, 3000, 100.9));
     trees.push_back(Tree("Дерево2", "дуб2", "где-то2", true, 597, 5.9));
-    trees.push_back(Tree("Дерево3", "дуб3", "где-то3", false, 345, 6.9));
-    trees.push_back(Tree("Дерево4", "дуб4", "где-то4", true, 65, 67.9));
+    trees.push_back(Tree("Дерево3", "дуб3", "где-то3", true, 345, 6.9));
+    trees.push_back(Tree("Дерево4", "дуб4", "где-то4", false, 65, 67.9));
     trees.push_back(Tree("Дерево5", "дуб5", "где-то5", false, 75, 900.9));
-    trees.push_back(Tree("Дерево6", "дуб6", "где-то6", true, 98, 98.9));
+    trees.push_back(Tree("Дерево6", "дуб6", "где-то6", false, 98, 98.9));
     system("cls");
     sort(trees);
     print(trees); 
