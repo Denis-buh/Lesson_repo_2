@@ -4,9 +4,11 @@
 
 #pragma once
 
-#include <stdlib.h>
+
 #include <iostream>
 #include "InputForm.h"
+#include "Show_inform.h"
+#include "my_arr.h"
 
 using namespace System;
 using namespace System::ComponentModel;
@@ -28,24 +30,30 @@ protected:
 		if (components)
 		{
 			delete components;
+			delete my_arrey; 
 		}
 	}
 private: 
 	// Мои поля
-	InputForm^ form_input = nullptr;
-	
+	My_arr<int>* my_arrey = nullptr;
+
 	// Мои функции
 	// Функция выхода из программы
 	System::Void exitToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) { exit(0);}
 	// Функция ввода в программу
 	System::Void inputToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e){
-		//InputForm frm2;
-		if (this->form_input == nullptr) {
-			this->form_input = gcnew InputForm();
-			this->form_input->Show();
-		}
-
-
+		InputForm form_input;
+		form_input.ShowDialog(this);
+		delete my_arrey;
+		my_arrey = new My_arr<int>(form_input.get_inform()); 
+		my_arrey->print();
+		my_arrey->sort();
+		my_arrey->print();
+	}
+	// Функция вывода из программы информации
+	System::Void calcToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+		Show_inform form_show;
+		form_show.ShowDialog(this);
 	}
 
 	// То, что сденерировала среда
@@ -88,6 +96,7 @@ private:
 		this->calcToolStripMenuItem->Name = L"calcToolStripMenuItem";
 		this->calcToolStripMenuItem->Size = System::Drawing::Size(42, 20);
 		this->calcToolStripMenuItem->Text = L"Calc";
+		this->calcToolStripMenuItem->Click += gcnew System::EventHandler(this, &Program::calcToolStripMenuItem_Click);
 		// 
 		// exitToolStripMenuItem
 		// 

@@ -5,3 +5,4 @@ E:\Project0\Project1\x64\Debug\Project1.MyForm.resources
 E:\Project0\Project1\x64\Debug\Project1.vcxproj.GenerateResource.cache
 E:\Project1\Project1\x64\Debug\Project1.MainWindow.resources
 E:\Project1\Project1\x64\Debug\Project1.InputForm.resources
+E:\Project1\Project1\x64\Debug\Project1.Show_inform.resources
