@@ -1,0 +1,115 @@
+
+
+
+
+#pragma once
+
+
+#include "my_arr.h"
+
+
+using namespace System;
+using namespace System::ComponentModel;
+using namespace System::Collections;
+using namespace System::Windows::Forms;
+using namespace System::Data;
+using namespace System::Drawing;
+
+template<class type>
+public ref class Show_inform : public System::Windows::Forms::Form{
+public:
+	Show_inform(My_arr<type>& my_arrey){
+		InitializeComponent();
+		this->my_arrey = &my_arrey;
+		this->array_not_sorted->Text = gcnew String(this->my_arrey->iprint().c_str());
+		
+	}
+
+protected:
+	~Show_inform(){
+		if (components){
+			delete components;
+		}
+	}
+
+private: 
+	My_arr<type>* my_arrey = nullptr;
+
+	System::Windows::Forms::Label^ label1;
+	System::Windows::Forms::Label^ label2;
+	System::Windows::Forms::Button^ sort_array;
+	System::Windows::Forms::FlowLayoutPanel^ flowLayoutPanel1;
+	System::Windows::Forms::Label^ array_not_sorted;
+	System::Windows::Forms::Label^ array_sorted;
+	System::ComponentModel::Container ^components;
+
+	System::Void sort_array_Click(System::Object^ sender, System::EventArgs^ e) {
+		this->my_arrey->sort();
+		this->array_sorted->Text = gcnew String(this->my_arrey->iprint().c_str());
+	}
+
+	void InitializeComponent(void){
+		this->label1 = (gcnew System::Windows::Forms::Label());
+		this->label2 = (gcnew System::Windows::Forms::Label());
+		this->sort_array = (gcnew System::Windows::Forms::Button());
+		this->flowLayoutPanel1 = (gcnew System::Windows::Forms::FlowLayoutPanel());
+		this->array_not_sorted = (gcnew System::Windows::Forms::Label());
+		this->array_sorted = (gcnew System::Windows::Forms::Label());
+		this->flowLayoutPanel1->SuspendLayout();
+		this->SuspendLayout();
+		this->label1->AutoSize = true;
+		this->label1->Location = System::Drawing::Point(3, 0);
+		this->label1->Name = L"label1";
+		this->label1->Size = System::Drawing::Size(126, 13);
+		this->label1->TabIndex = 0;
+		this->label1->Text = L"Массив до сортировки ";
+		this->label2->AutoSize = true;
+		this->label2->Location = System::Drawing::Point(3, 26);
+		this->label2->Name = L"label2";
+		this->label2->Size = System::Drawing::Size(141, 13);
+		this->label2->TabIndex = 2;
+		this->label2->Text = L"Массив после сортировки";
+		this->sort_array->Location = System::Drawing::Point(3, 55);
+		this->sort_array->Name = L"sort_array";
+		this->sort_array->Size = System::Drawing::Size(138, 23);
+		this->sort_array->TabIndex = 4;
+		this->sort_array->Text = L"Выполнить сортировку";
+		this->sort_array->UseVisualStyleBackColor = true;
+		this->sort_array->Click += gcnew System::EventHandler(this, &Show_inform::sort_array_Click);
+		this->flowLayoutPanel1->Controls->Add(this->label1);
+		this->flowLayoutPanel1->Controls->Add(this->array_not_sorted);
+		this->flowLayoutPanel1->Controls->Add(this->label2);
+		this->flowLayoutPanel1->Controls->Add(this->array_sorted);
+		this->flowLayoutPanel1->Controls->Add(this->sort_array);
+		this->flowLayoutPanel1->Dock = System::Windows::Forms::DockStyle::Fill;
+		this->flowLayoutPanel1->FlowDirection = System::Windows::Forms::FlowDirection::TopDown;
+		this->flowLayoutPanel1->Location = System::Drawing::Point(0, 0);
+		this->flowLayoutPanel1->Name = L"flowLayoutPanel1";
+		this->flowLayoutPanel1->Size = System::Drawing::Size(384, 111);
+		this->flowLayoutPanel1->TabIndex = 5;
+		this->array_not_sorted->AutoSize = true;
+		this->array_not_sorted->Location = System::Drawing::Point(3, 13);
+		this->array_not_sorted->Name = L"array_not_sorted";
+		this->array_not_sorted->Size = System::Drawing::Size(119, 13);
+		this->array_not_sorted->TabIndex = 5;
+		this->array_not_sorted->Text = L"массив до изменений";
+		this->array_sorted->AutoSize = true;
+		this->array_sorted->Location = System::Drawing::Point(3, 39);
+		this->array_sorted->Name = L"array_sorted";
+		this->array_sorted->Size = System::Drawing::Size(326, 13);
+		this->array_sorted->TabIndex = 6;
+		this->array_sorted->Text = L"Для отображения наснимите кнопку «Выполнить сортировку»";
+		this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
+		this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
+		this->AutoSizeMode = System::Windows::Forms::AutoSizeMode::GrowAndShrink;
+		this->ClientSize = System::Drawing::Size(384, 111);
+		this->Controls->Add(this->flowLayoutPanel1);
+		this->MinimumSize = System::Drawing::Size(400, 150);
+		this->Name = L"Show_inform";
+		this->Text = L"Show_inform";
+		this->flowLayoutPanel1->ResumeLayout(false);
+		this->flowLayoutPanel1->PerformLayout();
+		this->ResumeLayout(false);
+	}
+};
+

@@ -122,6 +122,9 @@
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Exercise.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="InputForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -134,6 +137,9 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Exercise.resx">
+      <DependentUpon>Exercise.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="InputForm.resx">
       <DependentUpon>InputForm.h</DependentUpon>
     </EmbeddedResource>

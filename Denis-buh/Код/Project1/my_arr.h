@@ -7,29 +7,37 @@
 
 #include <iostream>
 #include <vector>
+#include <sstream>
+
 
 template<class type> class My_arr {
 public:
-	// Конструкторы
 	My_arr() {}
 
 	My_arr(std::vector<type> input_number){
 		this->number_arr.assign(input_number.begin(), input_number.end());
 	}
 
-	void print() {
+	void print(){
 		for (type n : this->number_arr) {
 			std::cout << n << " ";
 		}
 		std::cout << "\n";
 	}
 
+	std::string iprint() {
+		std::string res = std::to_string(this->number_arr[0]);
+		for (int i = 1; i < this->number_arr.size(); i += 1) {
+			res += ", ";
+			res += std::to_string(this->number_arr[i]);
+		}
+		return res; 
+	}
+
 	void sort() {
-		// Бьем вектор на под вектора
 		std::vector <type> item_to_number;
 		std::vector <type> number_to_sort;
 		int len_number_to_sort = 0;
-
 		{
 			int pos_item = 0;
 			int neg_item = 0;
@@ -67,7 +75,6 @@ public:
 				}
 			}
 		}
-
 		this->number_arr = number_to_sort;
 		for (type n : item_to_number) { this->number_arr.push_back(n); }
 	}

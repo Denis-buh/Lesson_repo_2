@@ -1,3 +1,4 @@
+  Project1.Exercise.resources - Embedded, ContainedInManifestFile, 
   Project1.InputForm.resources - Embedded, ContainedInManifestFile, 
   Project1.MainWindow.resources - Embedded, ContainedInManifestFile, 
   Project1.Show_inform.resources - Embedded, ContainedInManifestFile, 
@@ -23,9 +24,12 @@ Class InputForm: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
   Methods:
     get_inform(vector<int\,std::allocator<int> >*): PrivateScope, Public, HideBySig
-Class Show_inform: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+Class Exercise: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
 Class Program: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class Show_inform<int>: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(My_arr<int>*): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
