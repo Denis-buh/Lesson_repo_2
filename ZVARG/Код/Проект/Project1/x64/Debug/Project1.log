@@ -1,0 +1,5 @@
+﻿  main.cpp
+E:\Project1\InputForm.h(22,30): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+E:\Project1\ComputingBlock.h(42,16): warning C4244: инициализация: преобразование "__int64" в "int", возможна потеря данных
+  main.obj : обнаружен модуль MSIL; для MSIL последовательная компоновка отключена; выполняется полная компоновка
+  Project1.vcxproj -> E:\Project1\x64\Debug\Project1.exe

@@ -1,0 +1,11 @@
+E:\Project1\Project1\x64\Debug\Project1.vcxproj.AssemblyReference.cache
+E:\Project1\Project1\x64\Debug\Project1.vcxproj.GenerateResource.cache
+C:\Users\ZVARG\source\repos\Project1\Project1\x64\Debug\Project1.vcxproj.AssemblyReference.cache
+C:\Users\ZVARG\source\repos\Project1\Project1\x64\Debug\Project1.MyForm.resources
+C:\Users\ZVARG\source\repos\Project1\Project1\x64\Debug\Project1.vcxproj.GenerateResource.cache
+C:\Users\ZVARG\source\repos\Project1\Project1\x64\Debug\Project1.InputForm.resources
+C:\Users\ZVARG\source\repos\Project1\Project1\x64\Debug\Project1.AnswerForm.resources
+E:\Project1\Project1\x64\Debug\Project1.AnswerForm.resources
+E:\Project1\Project1\x64\Debug\Project1.InputForm.resources
+E:\Project1\Project1\x64\Debug\Project1.Exercise.resources
+E:\Project1\Project1\x64\Debug\Project1.Main_window.resources
