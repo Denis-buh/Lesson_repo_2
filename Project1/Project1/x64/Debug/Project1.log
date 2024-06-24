@@ -1,8 +1,0 @@
-﻿  InputForm.cpp
-  MyForm.cpp
-C:\Users\ZVARG\source\repos\Project1\MyForm.h(33,14): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-C:\Users\ZVARG\source\repos\Project1\MyForm.h(54,17): warning C4244: 'initializing': conversion from '__int64' to 'int', possible loss of data
-  Generating Code...
-C:\Users\ZVARG\source\repos\Project1\MyForm.h(71,1): warning C4700: uninitialized local variable 'lastElement' used
-  AnswerForm.obj : MSIL module encountered; incremental linking is disabled for MSIL; performing full link
-  Project1.vcxproj -> C:\Users\ZVARG\source\repos\Project1\x64\Debug\Project1.exe
